@@ -1,0 +1,49 @@
+/* Estilo para el título */
+.title {
+    text-align: center;
+  }
+  
+  /* Estilo para el contenedor de la tabla */
+  .table-container {
+    margin: 0 auto; /* Centrar horizontalmente */
+    max-width: 800px; /* Ancho máximo de la tabla */
+  }
+  
+  /* Estilo para la tabla */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #ccc; /* Borde de la tabla */
+  }
+  
+  /* Estilo para las celdas de la tabla */
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc; /* Borde de las celdas */
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  .table th {
+    background-color: #f2f2f2; /* Color de fondo del encabezado */
+  }
+
+  .action-button {
+    padding: 5px 10px;
+    margin-right: 5px; /* Espacio entre los botones */
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  /* Estilo para el botón de editar */
+  .edit-button {
+    background-color: #007bff; /* Azul */
+  }
+  
+  /* Estilo para el botón de eliminar */
+  .delete-button {
+    background-color: #dc3545; /* Rojo */
+  }
+  
