@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +9,24 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username: string= '';
-  password: string='';
-  error: string='';
+  logueoUsuario: any = {};
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(
+    private userService: UserService,
+    private authService: AuthenticationService, // Importa y declara el servicio de autenticación
+    private router: Router
+  ) {}
 
-  login(): void {
-    this.authService.login(this.username, this.password).subscribe(
-      response => {
-        // Almacenar el token de autenticación en el almacenamiento local
-        localStorage.setItem('token', response.token);
-        // Redirigir a la página de usuarios
-        this.router.navigate(['/user-list']);
+  loguearUsuario() {
+   
+    this.authService.login(this.logueoUsuario.username, this.logueoUsuario.password).subscribe(
+      (respuesta) => {
+        console.log('Usuario logueado con éxito:', respuesta);
+  
+        this.router.navigate(['/user-list']); 
       },
-      error => {
-        this.error = error.error.message; // Manejar errores de autenticación
+      (error) => {
+        console.error('Error al loguear usuario:', error);
       }
     );
   }

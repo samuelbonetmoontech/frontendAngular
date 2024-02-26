@@ -1,6 +1,7 @@
 <h1 class="title">Lista de Usuarios</h1>
 
 <div class="table-container">
+  <button class="create-button" [routerLink]="['/user-create']">Crear</button>
   <table class="table">
     <thead>
       <tr>
@@ -17,8 +18,8 @@
         <td>{{ user.password }}</td>
         <td>{{ user.activo ? 'Sí' : 'No' }}</td>
         <td>
-          <button class="edit-button" (click)="editUser(user._id)">Editar</button>
-
+          <button class="edit-button" [routerLink]="['/user-edit']">Editar</button>
+          <router-outlet></router-outlet>
 
           <button class="delete-button" (click)="deleteUser(user._id)">Eliminar</button>
         </td>
@@ -26,4 +27,5 @@
     </tbody>
   </table>
 </div>
+
 

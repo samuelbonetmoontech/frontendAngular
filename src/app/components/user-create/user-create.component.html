@@ -1,1 +1,24 @@
-<p>user-create works!</p>
+<h2 class="title">Crear usuario</h2>
+<form class="form" (ngSubmit)="guardarUsuario()">
+  <ul>
+    <li>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="user_name" [(ngModel)]="nuevoUsuario.name" required/>
+    </li>
+    <li>
+      <label for="mail">Email:</label>
+      <input type="email" id="mail" name="user_mail" [(ngModel)]="nuevoUsuario.email" required/>
+    </li>
+    <li>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="nuevoUsuario.password" required/>
+    </li>
+    <li>
+      <label for="activo">Activo:</label>
+      <input type="checkbox" id="activo" name="activo" [(ngModel)]="nuevoUsuario.activo" required/>
+    </li>
+  </ul>
+  <button type="submit" >Crear</button>
+</form>
+
+<button class="return-button" [routerLink]="['/user-list']">Volver</button>

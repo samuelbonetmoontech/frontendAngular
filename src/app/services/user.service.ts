@@ -8,7 +8,10 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
- 
+  obtenerUsuarioPorId(userId: string) {
+    throw new Error('Method not implemented.');
+  }
+
   private apiUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) {}

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private apiUrl = 'http://localhost:3000'; // URL del backend
+  private apiUrl = 'http://localhost:3000'; 
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    // Eliminar el token de autenticación del almacenamiento local
+
     localStorage.removeItem('token');
   }
 }
