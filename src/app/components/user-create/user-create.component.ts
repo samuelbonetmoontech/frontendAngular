@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,11 +9,22 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-create.component.css']
 })
 export class UserCreateComponent {
-  nuevoUsuario: any = {};
+  nuevoUsuario: any = {
+    activo:true
+  };
+ 
+  @ViewChild('userForm') userForm!: NgForm;
+  constructor(private userService: UserService, private router: Router,private fb: FormBuilder) {}
 
-  constructor(private userService: UserService, private router: Router) {}
+  ngOnInit(): void {
+  }
 
   guardarUsuario() {
+
+    if (this.userForm.invalid) { 
+      return;
+    }
+
     this.userService.createUser(this.nuevoUsuario).subscribe(
       (respuesta) => {
         console.log('Usuario creado con éxito:', respuesta);

@@ -1,19 +1,27 @@
-<div>
-    <h2>Login</h2>
-    <form class="form" (submit)="loguearUsuario()">
-      <ul>
-        <li>
-          <label for="name">Nombre:</label>
-          <input type="text" id="name" name="user_name" class="input-field" [(ngModel)]="logueoUsuario.name" />
-        </li>
-        <li>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" class="input-field" />
-        </li>
-      </ul>
-    </form>
-    
+<div *ngIf="!isLoggedIn "> 
+  <h2>Login</h2>
+  <form class="form" (submit)="loguearUsuario()" #userForm="ngForm">
+    <ul>
+      <li>
+        <label for="mail">Email: (*)</label>
+        <input type="email" id="email" name="email" 
+        class="input-field"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+        [(ngModel)]="logueoUsuario.email"
+        required
+        />
+      </li>
+      <li>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="input-field" [(ngModel)]="logueoUsuario.password" required />
+      </li>
+    </ul>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <button type="submit" class="login-button">Entrar</button>
+    <button type="button" class="register-button" (click)="irRegister()">Registrarse</button>
+  </form>
+</div>
 
-    <button class="login-button" [routerLink]="['user-list']">Entrar</button>
-    <router-outlet></router-outlet>
-  </div>
+<div *ngIf="isLoggedIn"> 
+  <router-outlet></router-outlet> 
+</div>

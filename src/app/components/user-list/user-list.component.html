@@ -1,7 +1,7 @@
-<h1 class="title">Lista de Usuarios</h1>
-
+<button class="exit-button" (click)="exitUser()">Cerrar sesión</button>
+<h1 class="title">Lista de usuarios</h1>
 <div class="table-container">
-  <button class="create-button" [routerLink]="['/user-create']">Crear</button>
+  <button class="create-button" [routerLink]="['/user-create']">+ Crear</button>
   <table class="table">
     <thead>
       <tr>
@@ -9,6 +9,7 @@
         <th>Email</th>
         <th>Password</th>
         <th>Activo</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -18,14 +19,32 @@
         <td>{{ user.password }}</td>
         <td>{{ user.activo ? 'Sí' : 'No' }}</td>
         <td>
-          <button class="edit-button" [routerLink]="['/user-edit']">Editar</button>
-          <router-outlet></router-outlet>
-
+          <button class="edit-button" [routerLink]="['/user-edit', user._id]">Editar</button>
           <button class="delete-button" (click)="deleteUser(user._id)">Eliminar</button>
+          <button class="view-logs-button" (click)="viewConnectionLogs(user._id)">Logs</button>
         </td>
       </tr>
     </tbody>
   </table>
+  <br>
+
+  <div *ngIf="logsVisible">
+    <h2>Logs de Conexión</h2>
+    <table class="connection-logs-table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Usuario</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of connectionLogs">
+          <td>{{ log.timestamp }}</td>
+          <td>{{ log.userId }}</td>
+          <td>{{ log.login ? 'Conexión' : 'Desconexión' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
 </div>
-
-

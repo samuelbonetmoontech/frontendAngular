@@ -1,49 +1,106 @@
-/* Estilo para el título */
+
 .title {
     text-align: center;
   }
   
-  /* Estilo para el contenedor de la tabla */
+
   .table-container {
-    margin: 0 auto; /* Centrar horizontalmente */
-    max-width: 800px; /* Ancho máximo de la tabla */
+    margin: 0 auto; 
+    max-width: 800px; 
   }
   
-  /* Estilo para la tabla */
+
   .table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #ccc; /* Borde de la tabla */
+    border: 2px solid black; 
+    margin-top: 20px;
   }
   
-  /* Estilo para las celdas de la tabla */
-  .table th,
-  .table td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ccc; /* Borde de las celdas */
+
+  th, td {
+    padding: 8px; 
   }
   
-  /* Estilo para las celdas de encabezado */
-  .table th {
-    background-color: #f2f2f2; /* Color de fondo del encabezado */
+  th {
+    background-color: #f2f2f2; 
+    border: 2px solid black; 
+  }
+  
+  td {
+    border: 1px solid #ddd;
+    border: 2px solid black;  
   }
 
   .action-button {
     padding: 5px 10px;
-    margin-right: 5px; /* Espacio entre los botones */
+    margin-right: 5px;
     border: none;
     cursor: pointer;
     color: #fff;
   }
   
-  /* Estilo para el botón de editar */
+
+  .edit-button, .delete-button {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 20px; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
   .edit-button {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff;
+    color: #fff;
   }
   
-  /* Estilo para el botón de eliminar */
   .delete-button {
-    background-color: #dc3545; /* Rojo */
+    background-color: red;
+    color: #fff;
   }
   
+  
+  .create-button{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 115px;
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .name-connection{
+    text-align: right;
+  }
+
+  .exit-button{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 115px;
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .view-logs-button{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 115px;
+    padding: 10px 20px;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+  }

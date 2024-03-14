@@ -23,33 +23,48 @@
   
   li {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center; 
   }
   
   label {
-    display: inline-block;
     width: 100px;
-    font-weight: bold;
+    text-align: right; 
+    margin-right: 10px; 
   }
   
   input {
-    width: 200px;
+    flex: 1;
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #ccc;
   }
   
   .return-button {
-    display: block;
-    margin-top: 20px;
+    display:inline-block;
+    margin-top: 80px;
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    align-items: center;
   }
   
-  .return-button:hover {
-    background-color: #0056b3;
+  h2{
+    text-align: center;
   }
-  
+
+  .create-button{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 145px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+  }

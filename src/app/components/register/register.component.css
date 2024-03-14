@@ -40,11 +40,21 @@ input {
   border: 1px solid #ccc;
 }
 
-.save-button {
-  display: inline-block;
+
+
+h2{
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
-  margin-right: 10px;
+}
+
+.return-button {
   padding: 10px 20px;
+  margin-left: 125px;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -52,9 +62,7 @@ input {
   cursor: pointer;
 }
 
-.return-button {
-  display: inline-block;
-  margin-top: 20px;
+.register-button {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;

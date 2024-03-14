@@ -1,26 +1,32 @@
 <div class="container">
   <h2 class="title">Editar usuario</h2>
-  <form class="form" >
+  <form class="form" (ngSubmit)="updateUser()" #userForm="ngForm">
     <ul>
       <li>
         <label for="name">Nombre:</label>
-        <input type="text" id="name" name="user_name" [(ngModel)]="editoUsuario.name" />
+        <input type="text" id="name" name="name" [(ngModel)]="userName" required/>
+        <div *ngIf="userForm.controls['name']?.errors?.['required']" class="error-message">El nombre es requerido</div>
       </li>
+      
       <li>
-        <label for="mail">Email:</label>
-        <input type="email" id="mail" name="user_mail" />
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="userPassword"  minlength="3" />
+        <div *ngIf="userForm.controls['password']?.errors?.['minlength']" class="error-message">La contraseña debe tener al menos 3 caracteres</div>
       </li>
+      
       <li>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
-      </li>
-      <li>
-        <label for="activo">Activo:</label>
-        <input type="checkbox" id="activo" name="activo" />
+        <label>Activo:</label>
+        <div>
+          <input type="radio" id="activoSi" name="activo" [(ngModel)]="userActivo" [value]="true">
+          <label for="activoSi">Sí</label>
+        </div>
+        <div>
+          <input type="radio" id="activoNo" name="activo" [(ngModel)]="userActivo" [value]="false">
+          <label for="activoNo">No</label>
+        </div>
       </li>
     </ul>
-<button type="submit" class="save-button" >Guardar</button>
+    <button type="submit" class="save-button">Guardar</button> 
+    <button class="return-button" [routerLink]="['/user-list']">Volver</button>
   </form>
-  <button class="return-button" [routerLink]="['/user-list']">Volver</button>
-  
 </div>
