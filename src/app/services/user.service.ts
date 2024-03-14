@@ -59,7 +59,6 @@ export class UserService {
   }
 
   findUserByName(name: string): Observable<any> {
-
     return this.http.get<any>(`/api/users?name=${name}`);
   }
 

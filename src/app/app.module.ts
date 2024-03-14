@@ -6,17 +6,14 @@ import { AppComponent } from './app.component';
 
 import { UserCreateComponent } from './components/user-create/user-create.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AuthenticationService } from './services/authentication.service';
-
-
-
-
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -28,8 +25,6 @@ import { AuthenticationService } from './services/authentication.service';
     LoginComponent,
     RegisterComponent,
 
-
-
   ],
   imports: [
     BrowserModule,
@@ -39,7 +34,12 @@ import { AuthenticationService } from './services/authentication.service';
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AuthenticationService
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
